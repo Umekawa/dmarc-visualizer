@@ -14,13 +14,16 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     environment:
       - discovery.type=single-node
+    ports:
+      - 9201:9200
+      - 9301:9200
     volumes:
       - ./elastic_data:/usr/share/elasticsearch/data
 
   grafana:
     build: ./grafana/
     ports:
-      - 3000:3000
+      - 3003:3000
     user: root
     environment:
       GF_INSTALL_PLUGINS: grafana-piechart-panel,grafana-worldmap-panel
