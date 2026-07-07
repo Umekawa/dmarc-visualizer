@@ -14,9 +14,6 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     environment:
       - discovery.type=single-node
-    ports:
-      - 9201:9200
-      - 9301:9200
     volumes:
       - ./elastic_data:/usr/share/elasticsearch/data
 
